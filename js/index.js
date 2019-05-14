@@ -18,3 +18,22 @@ funBusHeader.appendChild(p);
 document.addEventListener("keydown", event => {
     p.textContent += `${event.code} `;
 });
+
+// wheel event
+const container = document.querySelectorAll(".container");
+
+// hides container content
+container[1].addEventListener("wheel", event => {
+    console.log(event);
+    if (event.pageY > 1500) {
+        container[1].style.display = "none";
+    }
+});
+
+// displays container content if wheel event is used on navbar
+container[0].addEventListener("wheel", event => {
+    if (container[1].style.display == "none") {
+        container[1].removeAttribute("style");
+    }
+})
+
