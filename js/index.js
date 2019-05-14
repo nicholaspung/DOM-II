@@ -122,6 +122,7 @@ nav[1].addEventListener("click", e => {
     event.stopImmediatePropagation();
 })
 
+// stop event propagation
 nav.forEach(e => e.addEventListener("click", e => {
     event.target.style.background = "green";
     e.preventDefault();
