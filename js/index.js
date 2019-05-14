@@ -18,6 +18,7 @@ const funBusHeader = document.querySelector(".intro");
 funBusHeader.appendChild(p);
 
 document.addEventListener("keydown", event => {
+    p.style.background = "yellow";
     p.textContent += `${event.code} `;
 });
 
@@ -26,7 +27,6 @@ const container = document.querySelectorAll(".container");
 
 // hides container content
 container[1].addEventListener("wheel", event => {
-    console.log(event);
     if (event.pageY > 1500) {
         container[1].style.display = "none";
     }
@@ -47,6 +47,27 @@ img.addEventListener("drag", event => {
 });
 
 img.addEventListener("dragend", event => {
-    console.log(event.target);
     img.removeAttribute("style");
+});
+
+// load event
+img.addEventListener("load", event => {
+    alert("hello there, i have loaded beautifully");
+});
+
+// focus event
+// create input element
+const input = document.createElement("input");
+input.type = "email";
+
+// add input element to "pick your destiantion" container
+const contentDestination = document.querySelector(".content-destination");
+contentDestination.appendChild(input);
+
+// when input is clicked, it changes to random color according to list
+const inputFocus = document.querySelector("input");
+inputFocus.addEventListener("focus", event => {
+    let colors = ['red', 'green', 'blue', 'grey', 'black'];
+    event.target.style.background = colors[Math.floor(Math.random() * colors.length)];
+    console.log(event.target);
 });
