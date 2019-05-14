@@ -66,8 +66,18 @@ contentDestination.appendChild(input);
 
 // when input is clicked, it changes to random color according to list
 const inputFocus = document.querySelector("input");
+
 inputFocus.addEventListener("focus", event => {
     let colors = ['red', 'green', 'blue', 'grey', 'black'];
     event.target.style.background = colors[Math.floor(Math.random() * colors.length)];
     console.log(event.target);
 });
+
+// resize event
+const home = document.querySelector(".home");
+const html = document.querySelector("html");
+
+window.addEventListener("resize", event => {
+    p.textContent += `${window.innerWidth} and ${window.innerHeight}`;
+    p.style.background = "green";
+})
