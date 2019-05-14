@@ -95,8 +95,14 @@ const p1 = document.createElement("p");
 funBusHeader.appendChild(p1);
 
 window.addEventListener("scroll", event => {
-    console.log(event.timeStamp);
     p1.textContent = `Timestamp triggered by scrolling: ${event.timeStamp}`;
     event.stopPropagation();
 });
 
+// select event
+const p2 = document.createElement("p");
+contentDestination.appendChild(p2);
+
+inputFocus.addEventListener("select", event => {
+    p2.textContent = `You selected: ${event.target.value}, couldn't get it to work with highlighted words, isntead of the entire thing.`;
+})
