@@ -106,3 +106,10 @@ contentDestination.appendChild(p2);
 inputFocus.addEventListener("select", event => {
     p2.textContent = `You selected: ${event.target.value}, couldn't get it to work with highlighted words, isntead of the entire thing.`;
 })
+
+// dblclick event
+funBusHeader.addEventListener("dblclick", event => {
+    let fontSizeVar= "50px";
+    fontSizeVar = event.target.style.fontSize;
+    event.target.style.fontSize = fontSizeVar === "20px" ? "50px" : "20px";
+})
