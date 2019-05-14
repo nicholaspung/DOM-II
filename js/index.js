@@ -8,6 +8,7 @@ const logo = document.querySelector(".logo-heading");
 logo.addEventListener("mouseover", event => {
     let backgroundProp = event.target.style.background;
     event.target.style.background = backgroundProp == "green" ? "white" : "green";
+    event.stopPropagation();
 });
 
 // keydown event
@@ -20,6 +21,7 @@ funBusHeader.appendChild(p);
 document.addEventListener("keydown", event => {
     p.style.background = "yellow";
     p.textContent += `${event.code} `;
+    event.stopPropagation();
 });
 
 // wheel event
@@ -30,6 +32,7 @@ container[1].addEventListener("wheel", event => {
     if (event.pageY > 1500) {
         container[1].style.display = "none";
     }
+    event.stopPropagation();
 });
 
 // displays container content if wheel event is used on navbar
@@ -37,6 +40,7 @@ container[0].addEventListener("wheel", event => {
     if (container[1].style.display == "none") {
         container[1].removeAttribute("style");
     }
+    event.stopPropagation();
 });
 
 // drag / drop event
@@ -44,15 +48,18 @@ const img = document.querySelector("header img");
 
 img.addEventListener("drag", event => {
     event.target.style.display ="none";
+    event.stopPropagation();
 });
 
 img.addEventListener("dragend", event => {
     img.removeAttribute("style");
+    event.stopPropagation();
 });
 
 // load event
 img.addEventListener("load", event => {
     alert("hello there, i have loaded beautifully");
+    event.stopPropagation();
 });
 
 // focus event
@@ -70,7 +77,7 @@ const inputFocus = document.querySelector("input");
 inputFocus.addEventListener("focus", event => {
     let colors = ['red', 'green', 'blue', 'grey', 'black'];
     event.target.style.background = colors[Math.floor(Math.random() * colors.length)];
-    console.log(event.target);
+    event.stopPropagation();
 });
 
 // resize event
@@ -80,4 +87,16 @@ const html = document.querySelector("html");
 window.addEventListener("resize", event => {
     p.textContent += `${window.innerWidth} and ${window.innerHeight}`;
     p.style.background = "green";
+    event.stopPropagation();
 })
+
+// scroll event
+const p1 = document.createElement("p");
+funBusHeader.appendChild(p1);
+
+window.addEventListener("scroll", event => {
+    console.log(event.timeStamp);
+    p1.textContent = `Timestamp triggered by scrolling: ${event.timeStamp}`;
+    event.stopPropagation();
+});
+
