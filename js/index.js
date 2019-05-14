@@ -117,6 +117,12 @@ funBusHeader.addEventListener("dblclick", event => {
 
 // stop nav links from refreshing page
 const nav = document.querySelectorAll(".nav-link");
+nav[1].addEventListener("click", e => {
+    event.target.style.background = "pink";
+    event.stopImmediatePropagation();
+})
+
 nav.forEach(e => e.addEventListener("click", e => {
+    event.target.style.background = "green";
     e.preventDefault();
 }))
