@@ -112,4 +112,11 @@ funBusHeader.addEventListener("dblclick", event => {
     let fontSizeVar= "50px";
     fontSizeVar = event.target.style.fontSize;
     event.target.style.fontSize = fontSizeVar === "20px" ? "50px" : "20px";
+    event.stopPropagation();
 })
+
+// stop nav links from refreshing page
+const nav = document.querySelectorAll(".nav-link");
+nav.forEach(e => e.addEventListener("click", e => {
+    e.preventDefault();
+}))
